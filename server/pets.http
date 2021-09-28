@@ -9,10 +9,10 @@ POST http://localhost:8000/api/pets/new
 Content-Type: application/json
 
 {
-    "tipo" : "Gato",
-    "nombre" : "Alf",
-    "color" : "Celeste",
-    "tamanho" : "Grande"
+    "tipo" : "Perra",
+    "nombre" : "Alfa",
+    "color" : "Celestes",
+    "tamanho" : "Mediano"
 }
 
 ###Edit

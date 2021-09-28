@@ -20,12 +20,21 @@ const buscar = (req, res) => {
 
 const nuevo = (req, res) => {
     //console.log(req.body)
-    Pets.create(req.body)
-        .then(response => res.json({data: response}))
-        .catch(err => {
-            res.json({error: err, message: "No sé registro al animal"});
-            res.sendStatus(500);
+    const {nombre} =  req.body;
+    Pets.findOne({nombre: nombre})
+        .then(result => {
+            if(result){
+                res.json({error: true, message: "No se puede repetir el nombre del animal"})
+            } else{
+                Pets.create(req.body)
+                .then(response => res.json({data: response}))
+                .catch(err => {
+                    res.json({error: err, message: "No sé registro al animal"});
+                    res.sendStatus(500);
+                })
+            }
         })
+   
 }
 
 const editar = (req, res) => {
