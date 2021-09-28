@@ -10,7 +10,7 @@ Content-Type: application/json
 
 {
     "tipo" : "Perra",
-    "nombre" : "Alfa",
+    "nombre" : "Alfina",
     "color" : "Celestes",
     "tamanho" : "Mediano"
 }

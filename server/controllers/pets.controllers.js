@@ -20,18 +20,22 @@ const buscar = (req, res) => {
 
 const nuevo = (req, res) => {
     //console.log(req.body)
-    const {nombre} =  req.body;
+    //const {tipo, nombre, color, tamanho} =  req.body;
+    const {nombre} = req.body;
+    //const fecha = new Date();
+    //console.log(`${fecha.getHours()}:${(fecha.getMinutes() >= 0 && fecha.getMinutes() < 10) ? "0"+fecha.getMinutes() : fecha.getMinutes()}:${fecha.getSeconds()}`);
     Pets.findOne({nombre: nombre})
         .then(result => {
             if(result){
                 res.json({error: true, message: "No se puede repetir el nombre del animal"})
             } else{
+                //Pets.create({tipo: tipo, nombre: nombre, color: color, tamanho: tamanho, fecha:`${fecha.getHours()}:${(fecha.getMinutes() >= 0 && fecha.getMinutes() < 10) ? "0"+fecha.getMinutes() : fecha.getMinutes()}:${fecha.getSeconds()}`})
                 Pets.create(req.body)
-                .then(response => res.json({data: response}))
-                .catch(err => {
-                    res.json({error: err, message: "No sé registro al animal"});
-                    res.sendStatus(500);
-                })
+                    .then(response => res.json({data: response}))
+                    .catch(err => {
+                        res.json({error: err, message: "No sé registro al animal"});
+                        res.sendStatus(500);
+                    })
             }
         })
    
