@@ -1,0 +1,30 @@
+###Listar
+GET http://localhost:8000/api/pets
+
+###Buscar
+GET http://localhost:8000/api/pets/61525fbf07ffd7741ae0e483
+
+###Nuevo
+POST http://localhost:8000/api/pets/new
+Content-Type: application/json
+
+{
+    "tipo" : "Gato",
+    "nombre" : "Alf",
+    "color" : "Celeste",
+    "tamanho" : "Grande"
+}
+
+###Edit
+PUT http://localhost:8000/api/pets/edit/61525fd0c73ad287bca6f6e9
+Content-Type: application/json
+
+{
+    "tipo" : "Gato",
+    "nombre" : "Borrar Oggy",
+    "color" : "Celeste",
+    "tamanho" : "Grande"
+}
+
+###Delete
+DELETE http://localhost:8000/api/pets/delete/6152600d186fb818cea17459
